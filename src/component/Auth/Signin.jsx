@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Signin = () => {
   const [showPass, setShowPass] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
   const handleShowPassword = (e) => {
     e.stopPropagation();
     setShowPass(!showPass);
@@ -14,6 +15,7 @@ const Signin = () => {
     if (formData.password.length < 8) {
       alert("short password");
     } else {
+      navigate("/");
       console.log(formData);
     }
   };
