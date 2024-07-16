@@ -9,7 +9,7 @@ const ChatTabCard = ({ openChat, _id }) => {
     >
       <div>
         <h3 className="text-lg">@username</h3>
-        <p className="text-gray-400">email: user@email.com</p>
+        <p className="text-gray-400 text-sm mt-3"> user@email.com</p>
       </div>
       <div className="flex flex-col items-end justify-between">
         <p className="w-2 h-2 bg-green-500 rounded"></p>
