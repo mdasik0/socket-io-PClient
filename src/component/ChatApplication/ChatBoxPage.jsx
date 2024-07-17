@@ -47,6 +47,7 @@ const ChatBoxPage = () => {
           {/* chat input */}
           <div className="flex m-3 absolute bottom-0 left-0 right-0">
             <input
+            autoComplete="off"
               className="w-full border-gray-200 border-2 rounded-lg mr-3 px-3 py-1.5"
               type="text"
               name="message"

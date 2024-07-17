@@ -2,7 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 const Signup = () => {
   const [showPass, setShowPass] = useState(false);
-  const [formData, setFormData] = useState({ email: "", password: "",confirmPassword: "", userName: "", });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    userName: "",
+  });
   const handleShowPassword = (e) => {
     e.stopPropagation();
     setShowPass(!showPass);
@@ -11,10 +16,11 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (formData.password.length < 8) {
-      alert("short password");
-    } else {
-      console.log(formData);
+    if(formData.password.length < 8) {
+      return alert("password must be at least 8 characters")
+    }
+    if (formData.password !== formData.confirmPassword) {
+       return alert("password didn't matched");
     }
   };
 
@@ -28,6 +34,7 @@ const Signup = () => {
               UserName
             </label>
             <input
+            autoComplete="off"
               onChange={(e) =>
                 setFormData({ ...formData, userName: e.target.value })
               }
@@ -43,6 +50,7 @@ const Signup = () => {
               Email
             </label>
             <input
+            autoComplete="off"
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
@@ -58,6 +66,7 @@ const Signup = () => {
               Password
             </label>
             <input
+            autoComplete="off"
               onChange={(e) =>
                 setFormData({ ...formData, password: e.target.value })
               }
@@ -73,6 +82,7 @@ const Signup = () => {
               Confirm password
             </label>
             <input
+            autoComplete="off"
               onChange={(e) =>
                 setFormData({ ...formData, confirmPassword: e.target.value })
               }
@@ -85,6 +95,7 @@ const Signup = () => {
           </div>
           <div className="flex gap-1">
             <input
+            autoComplete="off"
               onChange={handleShowPassword}
               className="cursor-pointer"
               checked={showPass}
